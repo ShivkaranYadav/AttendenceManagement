@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "928758431354",
+    "project_id": "new-attendance-78d75",
+    "storage_bucket": "new-attendance-78d75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928758431354:android:9408a8ed58df675107c5c3",
+        "android_client_info": {
+          "package_name": "com.example.anew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928758431354-jhtuq2kc4qf5jed5223hv39cjm1itunr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJjluOh3XKHBtRmb9uvlvFjc-WdpHDqMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928758431354-jhtuq2kc4qf5jed5223hv39cjm1itunr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
