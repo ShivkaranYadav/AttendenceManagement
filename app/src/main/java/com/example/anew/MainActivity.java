@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(TextUtils.isEmpty(en)){
-                    Toast.makeText(MainActivity.this, "Please enter Enrollment no", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter enrollment no", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
