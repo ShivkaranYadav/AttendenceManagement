@@ -70,23 +70,23 @@ public class MainActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(fn))
                 {
-                    Toast.makeText(MainActivity.this, "Plaese enter fullname", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter fullname", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(en)){
-                    Toast.makeText(MainActivity.this, "Plaese enter Enrollment no", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter Enrollment no", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(user))
                 {
-                    Toast.makeText(MainActivity.this, "Plaese enter email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(pass)){
-                    Toast.makeText(MainActivity.this, "Plaese enter password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
