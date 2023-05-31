@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#fff0"
     android:layout_height="match_parent"
     tools:context=".login">
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:text="Login"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,8 +20,9 @@
         app:layout_constraintVertical_bias="0.117" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailid"
         android:layout_width="match_parent"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:hint="EmaiId"
@@ -32,7 +35,8 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <EditText
-        android:id="@+id/pass"
+        android:id="@+id/lpass"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -58,5 +62,21 @@
         android:layout_marginHorizontal="50dp"
         app:layout_constraintVertical_bias="0.5"
         />
+
+    <TextView
+        android:id="@+id/singin_re"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:padding="10sp"
+        android:text="Registration"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.635" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

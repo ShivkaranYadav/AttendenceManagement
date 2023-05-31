@@ -14,4 +14,10 @@ public class student {
         email = Email;
         password=pass;
     }
+
+    public student(){
+
+    }
+
+
 }

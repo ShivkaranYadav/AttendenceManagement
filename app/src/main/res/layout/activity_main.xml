@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,28 +11,30 @@
 
     <TextView
         android:id="@+id/textView"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="60dp"
-        android:layout_marginLeft="120dp"
-
-        android:layout_marginBottom="100dp"
-        android:text="signup"
+        android:layout_marginLeft="120sp"
+        android:layout_marginTop="60sp"
+        android:layout_marginBottom="30sp"
+        android:text="Signin"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.117"
-        android:layout_marginStart="120dp" />
+         />
 
     <EditText
         android:id="@+id/FullName"
+        android:textStyle="bold"
+
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="25sp"
         android:hint="FullName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,10 +46,12 @@
 
     <EditText
         android:id="@+id/En"
+        android:textStyle="bold"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="25sp"
         android:hint="Enrollment No"
         android:inputType="number"
         android:minHeight="48dp"
@@ -59,10 +64,12 @@
     <EditText
         android:id="@+id/Email"
         android:inputType = "textEmailAddress"
+        android:textStyle="bold"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="25sp"
         android:hint="Email"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,12 +80,14 @@
 
     <EditText
         android:id="@+id/password"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:layout_marginBottom="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,20 +97,21 @@
     <TextView
         android:id="@+id/Goto"
         android:layout_width="wrap_content"
+        android:focusableInTouchMode="true"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="70sp"
         android:layout_marginRight="30dp"
-        android:text="@string/login"
-        android:layout_marginBottom="20dp"
-
-        android:textSize="30sp" />
+        android:text="Already Singin! Login Now"
+        android:layout_marginBottom="25sp"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
+        android:textStyle="bold"
         android:padding="10sp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
