@@ -1,7 +1,7 @@
 package com.example.anew;
 
 import static com.example.anew.R.id.FullName;
-import static com.example.anew.R.id.atten;
+import static com.example.anew.R.id.attendance;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +26,7 @@ public class Dashboad extends AppCompatActivity {
     private DatabaseReference reference;
 
     private String Userid;
-     Button Atten;
+     Button Attendance;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,8 +34,8 @@ public class Dashboad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboad);
 
-        Atten=(Button) findViewById(R.id.atten);
-        Atten.setOnClickListener(new View.OnClickListener() {
+        Attendance=(Button) findViewById(R.id.attendance);
+        Attendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
