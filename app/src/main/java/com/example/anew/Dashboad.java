@@ -24,9 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 public class Dashboad extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference reference;
-
     private String Userid;
-     Button Attendance;
+    Button Attendance;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,14 +53,11 @@ public class Dashboad extends AppCompatActivity {
                      String fullName =stud.fullName;
                      get.setText(fullName);
                  }
-
              }
 
              @Override
              public void onCancelled(@NonNull DatabaseError error) {
                  Toast.makeText(Dashboad.this, "Something wrong", Toast.LENGTH_SHORT).show();
-
-
              }
          });
     }

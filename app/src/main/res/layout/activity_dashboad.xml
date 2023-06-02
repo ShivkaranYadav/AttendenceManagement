@@ -8,11 +8,18 @@
     tools:context=".Dashboad">
 
     <TextView
-        android:id="@+id/Retrive_name"
-        android:layout_width="311dp"
-        android:layout_height="41dp"
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:text="Name : "
+        android:textSize="25dp"
+        />
+    <TextView
+        android:id="@+id/Retrive_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:textSize="25dp"
         />
 
