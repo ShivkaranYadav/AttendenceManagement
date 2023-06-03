@@ -28,7 +28,7 @@ public class login extends AppCompatActivity
 
     FirebaseAuth auth= FirebaseAuth.getInstance();
     EditText emailId, pass;
-    TextView signin;
+    TextView registerLink;
 
     Button signup;
 
@@ -43,9 +43,9 @@ public class login extends AppCompatActivity
         emailId = (EditText) findViewById(R.id.emailid);
         pass = (EditText) findViewById(R.id.lpass);
         signup = (Button) findViewById(R.id.signup);
-        signin = (TextView) findViewById(R.id.singin_re);
+        registerLink = (TextView) findViewById(R.id.registerLink);
 
-        signin.setOnClickListener(new View.OnClickListener() {
+        registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));

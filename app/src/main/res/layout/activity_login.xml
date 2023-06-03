@@ -48,7 +48,7 @@
         />
 
     <TextView
-        android:id="@+id/singin_re"
+        android:id="@+id/registerLink"
         android:gravity="center_horizontal"
         android:layout_marginBottom="30sp"
         android:layout_width="match_parent"

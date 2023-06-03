@@ -23,6 +23,31 @@
         android:textSize="25dp"
         />
 
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Location : "
+        android:textSize="25dp"
+        />
+    <TextView
+        android:id="@+id/longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Location : "
+        android:textSize="25dp"
+        />
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Location : "
+        android:textSize="25dp"
+        />
+
     <Button
         android:id="@+id/attendance"
         android:layout_width="match_parent"
