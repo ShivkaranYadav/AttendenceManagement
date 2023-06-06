@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="Location : "
+        android:text="Latitude : "
         android:textSize="25dp"
         />
     <TextView
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="Location : "
+        android:text="Longitude : "
         android:textSize="25dp"
         />
     <TextView

@@ -17,8 +17,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.w3c.dom.Text;
 
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("Student");
         auth = FirebaseAuth.getInstance();
 
+
+
         sighupButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -68,30 +73,25 @@ public class MainActivity extends AppCompatActivity {
                 String user = email.getText().toString();
                 String pass = password.getText().toString();
 
-                if(TextUtils.isEmpty(fn))
+                if(TextUtils.isEmpty(fn) || TextUtils.isEmpty(en) || TextUtils.isEmpty(user) || TextUtils.isEmpty(pass))
                 {
-                    Toast.makeText(MainActivity.this, "Please enter fullname", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if(TextUtils.isEmpty(en)){
-                    Toast.makeText(MainActivity.this, "Please enter enrollment no", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                auth.fetchSignInMethodsForEmail(user).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                        boolean check = !task.getResult().getSignInMethods().isEmpty();
+                        if(check)
+                        {
+                            Toast.makeText(MainActivity.this, "email already exist", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                });
 
-                if(TextUtils.isEmpty(user))
-                {
-                    Toast.makeText(MainActivity.this, "Please enter email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if(TextUtils.isEmpty(pass)){
-                    Toast.makeText(MainActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                auth.createUserWithEmailAndPassword(user,pass)
-                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>()
+                auth.createUserWithEmailAndPassword(user,pass).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>()
                         {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task)
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task)
                                                 {
-                                                    Toast.makeText(MainActivity.this, "signup successful", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(MainActivity.this, "Signup successful", Toast.LENGTH_SHORT).show();
                                                     startActivity(new Intent(getApplicationContext(),login.class));
                                                     finish();
                                                 }
@@ -122,4 +122,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
