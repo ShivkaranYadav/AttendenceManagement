@@ -10,6 +10,8 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -41,11 +43,13 @@ public class Dashboad extends AppCompatActivity {
     private DatabaseReference reference;
     private String Userid;
     Button Attendance;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     // Location variables
     FusedLocationProviderClient fusedLocationProviderClient;
     TextView latitude, longitude, address;
-    Button getLocation;
+    Button getLocation, logout;
     private final static int REQUEST_CODE = 100;
 
     // Database name retrieval variables
@@ -55,6 +59,10 @@ public class Dashboad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboad);
 
+        // shared preferences variables
+        sharedPreferences = getSharedPreferences("sharedPreference", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
         //location variables
         latitude = findViewById(R.id.latitude);
         longitude = findViewById(R.id.longitude);
@@ -63,12 +71,29 @@ public class Dashboad extends AppCompatActivity {
 
         // other variables
         Attendance=(Button) findViewById(R.id.attendance);
-        Attendance.setOnClickListener(new View.OnClickListener() {
+        getLocation = (Button) findViewById(R.id.getLocation);
+        logout = (Button) findViewById(R.id.logout);
+
+        // getLocation button code to get the user's current location
+        getLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getLastLocation();
             }
         });
+
+        // logout button for logout user from app
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor.clear();
+                editor.commit();
+                startActivity(new Intent(getApplicationContext(),login.class));
+                finish();
+            }
+        });
+
+
          user = FirebaseAuth.getInstance().getCurrentUser();
          reference= FirebaseDatabase.getInstance().getReference( "Student");
          Userid=user.getUid();
@@ -80,7 +105,7 @@ public class Dashboad extends AppCompatActivity {
 
                  if(stud != null){
                      String fullName =stud.fullName;
-                     get.setText(fullName);
+                     get.setText("Name : " + fullName);
                  }
              }
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -29,7 +30,8 @@ public class login extends AppCompatActivity
     FirebaseAuth auth= FirebaseAuth.getInstance();
     EditText emailId, pass;
     TextView registerLink;
-
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     Button signup;
 
 
@@ -39,6 +41,10 @@ public class login extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        checkLogin();
+
+        sharedPreferences = getSharedPreferences("sharedPreference", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         emailId = (EditText) findViewById(R.id.emailid);
         pass = (EditText) findViewById(R.id.lpass);
@@ -77,12 +83,17 @@ public class login extends AppCompatActivity
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
+                                if(task.isSuccessful())
+                                {
                                     Toast.makeText(login.this, "Login is successful", Toast.LENGTH_SHORT).show();
+                                        editor.putString("sharedEmail", emailid);
+                                        editor.putString("sharedPass", lpass);
+                                        editor.commit();
                                     startActivity(new Intent(getApplicationContext(),Dashboad.class));
                                     finish();
                                 }
-                                else {
+                                else
+                                {
                                     Toast.makeText(login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -90,16 +101,14 @@ public class login extends AppCompatActivity
 
             }
         });
-
-
-
-
-
-
-
-
-
-
     }
 
+    private void checkLogin() {
+        sharedPreferences = getSharedPreferences("sharedPreference", MODE_PRIVATE);
+        String email = sharedPreferences.getString("sharedEmail","");
+        if(sharedPreferences.contains("sharedEmail")){
+            startActivity(new Intent(getApplicationContext(),Dashboad.class));
+            finish();
+        }
+    }
 }

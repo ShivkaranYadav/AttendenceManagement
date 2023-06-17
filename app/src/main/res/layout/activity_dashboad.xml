@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="Name : "
+        android:text=""
         android:textSize="25dp"
         />
     <TextView
@@ -49,6 +49,16 @@
         />
 
     <Button
+        android:id="@+id/getLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:text="Get location"
+        android:textSize="20sp"
+        android:gravity= "center"
+        />
+
+    <Button
         android:id="@+id/attendance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,4 +68,13 @@
         android:gravity= "center"
         />
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:text="Logout"
+        android:textSize="20sp"
+        android:gravity= "center"
+        />
 </LinearLayout>

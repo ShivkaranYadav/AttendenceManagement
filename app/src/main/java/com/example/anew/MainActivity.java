@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     TextView Goto;
     FirebaseAuth auth;
     DatabaseReference databaseReference;
+    FirebaseFirestore firebaseFirestore;
 
 
     @Override
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         sighupButton = (Button) findViewById(R.id.Login);
         Goto=(TextView) findViewById(R.id.Goto);
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         Goto.setOnClickListener(new View.OnClickListener()
         {
@@ -85,8 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         boolean check = !task.getResult().getSignInMethods().isEmpty();
                         if(check)
                         {
-                            Toast.makeText(MainActivity.this, "email already exist", Toast.LENGTH_SHORT).show();
-                            return;
+                            Toast.makeText(MainActivity.this, "email already exist!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
