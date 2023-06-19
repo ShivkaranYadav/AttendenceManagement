@@ -106,7 +106,7 @@ public class login extends AppCompatActivity
     private void checkLogin() {
         sharedPreferences = getSharedPreferences("sharedPreference", MODE_PRIVATE);
         String email = sharedPreferences.getString("sharedEmail","");
-        if(sharedPreferences.contains("sharedEmail")){
+        if(sharedPreferences.contains("sharedEmail") && sharedPreferences.contains("sharedPass")){
             startActivity(new Intent(getApplicationContext(),Dashboad.class));
             finish();
         }
