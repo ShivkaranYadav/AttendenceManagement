@@ -45,4 +45,22 @@
     </string>
     <string name="title_activity_dashbord">Dashbord</string>
     <string name="login">Login?</string>
+    
+    <string name="semesterDropdown">SemDrop</string>
+    <string-array name="sem">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string name="subjectDropdown">SubDrop</string>
+    <string-array name="sub">
+        <item>Maths</item>
+        <item>Java</item>
+        <item>C</item>
+        <item>PHP</item>
+        <item>RDBMS</item>
+
+    </string-array>
 </resources>
