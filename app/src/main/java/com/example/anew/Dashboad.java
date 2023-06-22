@@ -82,6 +82,14 @@ public class Dashboad extends AppCompatActivity {
             }
         });
 
+        Attendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MarkAttendance.class));
+                finish();
+            }
+        });
+
         // logout button for logout user from app
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
