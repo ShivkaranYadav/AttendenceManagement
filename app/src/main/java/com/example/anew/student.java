@@ -1,23 +1,17 @@
 package com.example.anew;
 
 public class student {
-    public String fullName;
-    public String enrollmentNo;
-    public String email;
-
-    public String password;
+    public String fullName, enrollmentNo, email, password, course;
 
 
-    public student(String fullName, String EnrollmentNo, String Email, String pass) {
-        this.fullName = fullName;
-        enrollmentNo = EnrollmentNo;
-        email = Email;
-        password=pass;
+    public student(String FN, String EN , String E, String PW, String C) {
+        fullName = FN;
+        enrollmentNo = EN;
+        email = E;
+        password = PW;
+        course = C;
     }
-
     public student(){
 
     }
-
-
 }

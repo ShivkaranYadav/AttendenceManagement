@@ -86,7 +86,6 @@ public class Dashboad extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),MarkAttendance.class));
-                finish();
             }
         });
 
@@ -101,19 +100,18 @@ public class Dashboad extends AppCompatActivity {
             }
         });
 
-
          user = FirebaseAuth.getInstance().getCurrentUser();
-         reference= FirebaseDatabase.getInstance().getReference( "Student");
+         reference= FirebaseDatabase.getInstance().getReference( "Student/MCA");
          Userid=user.getUid();
-         final TextView get =(TextView) findViewById(R.id.Retrive_name);
-         reference.child(Userid).addListenerForSingleValueEvent(new ValueEventListener() {
+         final TextView get =(TextView) findViewById(R.id.name);
+         reference.child(Userid).addValueEventListener(new ValueEventListener() {
              @Override
              public void onDataChange(@NonNull DataSnapshot snapshot) {
-                 student stud=snapshot.getValue(student.class);
+                 student userName = snapshot.getValue(student.class);
 
-                 if(stud != null){
-                     String fullName =stud.fullName;
-                     get.setText("Name : " + fullName);
+                 if(userName != null){
+                     String fullName = userName.fullName;
+                     get.append(fullName);
                  }
              }
 

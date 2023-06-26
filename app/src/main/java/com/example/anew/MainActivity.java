@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
     EditText fullName, enrollmentNo, email, password;
     Button sighupButton;
-    TextView Goto;
+    TextView Goto, courseErr;
     FirebaseAuth auth;
-    DatabaseReference databaseReference;
+    Spinner courseSpinner;
+    ArrayAdapter<CharSequence> adapter;
+    String reference = "";
 
 
     @Override
@@ -45,6 +49,17 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         sighupButton = (Button) findViewById(R.id.Login);
         Goto=(TextView) findViewById(R.id.Goto);
+        courseErr = findViewById(R.id.courseErr);
+
+        auth = FirebaseAuth.getInstance();
+
+        // Spinner
+        courseSpinner = (Spinner) findViewById(R.id.courseSpinner);
+
+        // set the spinner using array adapter
+        adapter = ArrayAdapter.createFromResource(this,R.array.course, R.layout.spinner_layout);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        courseSpinner.setAdapter(adapter);
 
         Goto.setOnClickListener(new View.OnClickListener()
         {
@@ -55,9 +70,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Student");
-        auth = FirebaseAuth.getInstance();
-
         sighupButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -67,27 +79,42 @@ public class MainActivity extends AppCompatActivity {
                 String en = enrollmentNo.getText().toString();
                 String user = email.getText().toString();
                 String pass = password.getText().toString();
+                // get selected course
+                String selectedCourse = courseSpinner.getSelectedItem().toString();
 
                 if(TextUtils.isEmpty(fn))
                 {
-                    Toast.makeText(MainActivity.this, "Plaese enter fullname", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter fullname", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(en)){
-                    Toast.makeText(MainActivity.this, "Plaese enter Enrollment no", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter Enrollment no", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(user))
                 {
-                    Toast.makeText(MainActivity.this, "Plaese enter email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(pass)){
-                    Toast.makeText(MainActivity.this, "Plaese enter password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
+                }
+
+                if(selectedCourse.equals("Course")) {
+                    courseErr.setError("Required!");
+                    courseErr.requestFocus();
+                } else if(selectedCourse.equals("MCA")) {
+                    reference = "Student/MCA";
+                } else if (selectedCourse.equals("MBA")) {
+                    reference = "Student/MBA";
+                } else if (selectedCourse.equals("BCA")) {
+                    reference = "Student/BCA";
+                }else {
+                    reference = "Student/BBA";
                 }
 
                 auth.createUserWithEmailAndPassword(user,pass)
@@ -98,15 +125,9 @@ public class MainActivity extends AppCompatActivity {
                             {
                                 if (task.isSuccessful())
                                 {
-                                    student info = new student(
-                                            fn,
-                                            en,
-                                            user,
-                                            pass
-                                    );
-                                    FirebaseDatabase.getInstance().getReference("Student")
-                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                            .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>()
+                                    student studentInfo = new student(fn,en,user,pass,selectedCourse);
+                                    FirebaseDatabase.getInstance().getReference(reference)
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())                                            .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>()
                                             {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task)
@@ -116,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
                                                     finish();
                                                 }
                                             });
+                                }
+                                else
+                                {
+                                    Toast.makeText(MainActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

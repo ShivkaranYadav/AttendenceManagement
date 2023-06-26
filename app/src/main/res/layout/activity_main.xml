@@ -14,14 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_marginVertical="60sp"
+        android:layout_marginVertical="30sp"
         android:text="Registration"
         android:textSize="40sp"
          />
 
     <EditText
         android:id="@+id/FullName"
-        android:textStyle="bold"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +35,6 @@
 
     <EditText
         android:id="@+id/En"
-        android:textStyle="bold"
         android:autofillHints=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +50,6 @@
     <EditText
         android:id="@+id/Email"
         android:inputType = "textEmailAddress"
-        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -64,9 +61,30 @@
         android:autofillHints=""
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <Spinner
+        android:id="@+id/courseSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        android:minHeight="48dp"
+        />
+    <TextView
+        android:id="@+id/courseErr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        />
+    </LinearLayout>
+
     <EditText
         android:id="@+id/password"
-        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
