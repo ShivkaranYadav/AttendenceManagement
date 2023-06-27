@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Dashboad">
+    tools:context=".Dashboad"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/name"
@@ -16,26 +16,14 @@
         android:text="Name : "
         android:textSize="25dp"
         />
-
     <TextView
-        android:id="@+id/latitude"
+        android:id="@+id/enrollment_no"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="Latitude : "
-        android:textSize="25dp"
         android:layout_marginBottom="20dp"
-
-        />
-
-    <TextView
-        android:id="@+id/longitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:text="Longitude : "
+        android:text="Enrollment : "
         android:textSize="25dp"
-        android:layout_marginBottom="20dp"
         />
 
     <TextView
@@ -48,6 +36,40 @@
         android:layout_marginBottom="20dp"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="20dp"
+            />
+        <TextView
+            android:id="@+id/errorSem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp"
+
+        />
+
     <Button
         android:id="@+id/getLocation"
         android:layout_width="match_parent"
@@ -55,7 +77,6 @@
         android:layout_marginHorizontal="50dp"
         android:text="Get location"
         android:textSize="20sp"
-        android:gravity= "center"
         android:layout_marginBottom="20dp"
         />
 
@@ -66,7 +87,6 @@
         android:layout_marginHorizontal="50dp"
         android:text="Attendance"
         android:textSize="20sp"
-        android:gravity= "center"
         android:layout_marginBottom="20dp"
         />
 
@@ -77,6 +97,5 @@
         android:layout_marginHorizontal="50dp"
         android:text="Logout"
         android:textSize="20sp"
-        android:gravity= "center"
         />
 </LinearLayout>

@@ -26,10 +26,11 @@ public class login extends AppCompatActivity
 
     FirebaseAuth auth= FirebaseAuth.getInstance();
     EditText emailId, pass;
-    TextView registerLink;
+    TextView registerLink, otherLogin;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Button signup;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -46,11 +47,19 @@ public class login extends AppCompatActivity
         pass = (EditText) findViewById(R.id.lpass);
         signup = (Button) findViewById(R.id.signup);
         registerLink = (TextView) findViewById(R.id.registerLink);
+        otherLogin = findViewById(R.id.otherLogin);
 
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+        });
+
+        otherLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), otherLogin.class));
             }
         });
 

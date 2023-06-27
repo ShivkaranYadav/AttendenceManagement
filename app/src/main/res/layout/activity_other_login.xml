@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation = "vertical"
     android:layout_height="match_parent"
-    tools:context=".login">
+    tools:context=".otherLogin"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Login"
+        android:text="Faculty Login"
         android:textSize="40sp"
         android:gravity="center_horizontal"
         android:layout_marginVertical="60sp"
         />
 
     <EditText
-        android:id="@+id/emailid"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
@@ -33,7 +35,7 @@
         />
 
     <EditText
-        android:id="@+id/lpass"
+        android:id="@+id/password"
         android:background="@drawable/edittextstyle"
         android:padding="15dp"
         android:layout_width="match_parent"
@@ -47,23 +49,22 @@
         />
 
     <TextView
-        android:id="@+id/registerLink"
+        android:id="@+id/forgetPassword"
         android:gravity="center_horizontal"
         android:layout_marginBottom="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Don't have an account?create one"
+        android:text="Forget password?"
         android:textSize="20sp"
         android:textStyle="bold"
         />
-
     <TextView
-        android:id="@+id/otherLogin"
+        android:id="@+id/adminLogin"
         android:gravity="center_horizontal"
         android:layout_marginBottom="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Other login?"
+        android:text="Admin login?"
         android:textSize="20sp"
         android:textStyle="bold"
         />

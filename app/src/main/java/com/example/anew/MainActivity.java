@@ -19,22 +19,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
 
     EditText fullName, enrollmentNo, email, password;
     Button sighupButton;
-    TextView Goto, courseErr;
+    TextView Goto;
     FirebaseAuth auth;
-    Spinner courseSpinner;
-    ArrayAdapter<CharSequence> adapter;
-    String reference = "";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,17 +42,8 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         sighupButton = (Button) findViewById(R.id.Login);
         Goto=(TextView) findViewById(R.id.Goto);
-        courseErr = findViewById(R.id.courseErr);
 
         auth = FirebaseAuth.getInstance();
-
-        // Spinner
-        courseSpinner = (Spinner) findViewById(R.id.courseSpinner);
-
-        // set the spinner using array adapter
-        adapter = ArrayAdapter.createFromResource(this,R.array.course, R.layout.spinner_layout);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        courseSpinner.setAdapter(adapter);
 
         Goto.setOnClickListener(new View.OnClickListener()
         {
@@ -79,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 String en = enrollmentNo.getText().toString();
                 String user = email.getText().toString();
                 String pass = password.getText().toString();
-                // get selected course
-                String selectedCourse = courseSpinner.getSelectedItem().toString();
 
                 if(TextUtils.isEmpty(fn))
                 {
@@ -104,19 +86,6 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(selectedCourse.equals("Course")) {
-                    courseErr.setError("Required!");
-                    courseErr.requestFocus();
-                } else if(selectedCourse.equals("MCA")) {
-                    reference = "Student/MCA";
-                } else if (selectedCourse.equals("MBA")) {
-                    reference = "Student/MBA";
-                } else if (selectedCourse.equals("BCA")) {
-                    reference = "Student/BCA";
-                }else {
-                    reference = "Student/BBA";
-                }
-
                 auth.createUserWithEmailAndPassword(user,pass)
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>()
                         {
@@ -125,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
                             {
                                 if (task.isSuccessful())
                                 {
-                                    student studentInfo = new student(fn,en,user,pass,selectedCourse);
-                                    FirebaseDatabase.getInstance().getReference(reference)
-                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())                                            .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>()
+                                    user userInfo = new user(fn,en,user,pass);
+                                    FirebaseDatabase.getInstance().getReference("Student")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(userInfo).addOnCompleteListener(new OnCompleteListener<Void>()
                                             {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task)
@@ -140,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 else
                                 {
-                                    Toast.makeText(MainActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

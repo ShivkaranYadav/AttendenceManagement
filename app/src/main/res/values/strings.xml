@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">New</string>
+    <string name="app_name">Attendance System</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
     <string name="title_activity_register">Register</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -46,15 +48,13 @@
     <string name="title_activity_dashbord">Dashbord</string>
     <string name="login">Login?</string>
 
-    <string name="courseSpinner">Course</string>
-    <string-array name="course">
-        <item>Course</item>
-        <item>BCA</item>
-        <item>MCA</item>
-        <item>BBA</item>
-        <item>MBA</item>
+    <string name="userType">Course</string>
+    <string-array name="uType">
+        <item>Select user type</item>
+        <item>Student</item>
+        <item>Faculty</item>
     </string-array>
-    
+
     <string name="semesterDropdown">SemDrop</string>
     <string-array name="sem">
 
@@ -69,7 +69,9 @@
     </string-array>
 
     <string name="subjectDropdown">SubDrop</string>
-    <string-array name="sub_sem_1">
+
+    // MCA
+    <string-array name="mca_sub_sem_1">
         <item>Maths</item>
         <item>Java</item>
         <item>C</item>
@@ -78,7 +80,7 @@
         <item>Basic computer concepts</item>
     </string-array>
 
-    <string-array name="sub_sem_2">
+    <string-array name="mca_sub_sem_2">
         <item>Python</item>
         <item>Data structures</item>
         <item>Big data tools</item>
@@ -87,7 +89,7 @@
         <item>Software project-1</item>
     </string-array>
 
-    <string-array name="sub_sem_3">
+    <string-array name="mca_sub_sem_3">
         <item>Design and analysis of algorithms</item>
         <item>Machine learning</item>
         <item>Software engineering</item>
@@ -95,4 +97,41 @@
         <item>Cloud computing</item>
         <item>IOT</item>
     </string-array>
+
+    // MBA
+    <string-array name="mba_sub_sem_1">
+        <item>Management Accounting</item>
+        <item>Economics for Managers</item>
+        <item>Managerial Communication</item>
+        <item>Organizational Behaviour</item>
+        <item>Business Ethics and Corporate Governance</item>
+        <item>Management Information Systems</item>
+        <item>Developing Contributory Skills – I</item>
+        <item>Business Statistics</item>
+    </string-array>
+
+    <string-array name="mba_sub_sem_2">
+        <item>Business Analytics</item>
+        <item>Corporate Finance</item>
+        <item>Marketing Management</item>
+        <item>Human Resource Management</item>
+        <item>Production and Operations Management</item>
+        <item>Research Methodology</item>
+        <item>Entrepreneurship</item>
+        <item>Developing Contributory Skills – II</item>
+    </string-array>
+
+    <string-array name="mba_sub_sem_3">
+        <item>Strategic Management</item>
+        <item>Multidisciplinary Action Project</item>
+        <item>Developing Contributory Skills – III</item>
+        <item>International Business</item>
+        <item>Financial Markets and Services</item>
+    </string-array>
+
+    <string-array name="mba_sub_sem_4">
+        <item>Legal Aspects of Business</item>
+        <item>Business Reporting Data Visualization</item>
+    </string-array>
+
 </resources>

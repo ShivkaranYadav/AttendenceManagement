@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/facultyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Faculty Name"
+        />
+
+    <EditText
+        android:id="@+id/facultyEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/facultyName"
+        android:layout_alignParentStart="true"
+        android:hint="Faculty Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+</RelativeLayout>
